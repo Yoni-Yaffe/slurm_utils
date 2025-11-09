@@ -8,10 +8,10 @@ Includes handy functions for viewing job logs, jumping to job directories, and q
 ## 📁 Repository Structure
 
 ```
-slurm-utils/
-├── slurm.zsh # Main utility functions and aliases
-└── completions/
-└── _jobid # Job ID autocompletion for common Slurm commands
+├── completions
+│   └── _jobid
+├── README.md
+└── slurm.zsh
 ```
 
 
