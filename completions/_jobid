@@ -1,0 +1,15 @@
+#compdef slogerr slogout scancel scd showjob
+
+_jobid_squeue() {
+  local -a ids descs
+  local line id part name user st time nodes node
+  while IFS='|' read -r id part name user st time nodes node; do
+    [[ -z "$id" ]] && continue
+    ids+=("$id")
+    descs+=("${(l:7:: :)id} ${(r:14:: :)part} ${(r:18:: :)name} ${(r:10:: :)user} ${(r:8:: :)st} ${(r:10:: :)time} ${(r:5:: :)nodes} $node")
+  done <<<"$(squeue --me --noheader --format='%A|%P|%j|%u|%T|%M|%D|%R' 2>/dev/null)"
+  (( $#ids )) || return 0
+  compadd -d descs -- $ids
+}
+
+_jobid_squeue "$@"
