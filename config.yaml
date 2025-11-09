@@ -1,0 +1,25 @@
+slurm_params:
+  output: "slurmlog.out" # redirect stdout
+  error: "slurmlog.err" # redirect stderr
+  partition: studentkillable # (see resources section)
+  time: "240" # max time (minutes)
+  signal: "USR1@120" # how to end job when time�s up
+  nodes: "1" # number of machines
+  ntasks: "1" # number of processes
+  mem: "16000" # CPU memory (MB)
+  cpus-per-task: "8" # CPU cores per process
+  gpus: "1" # GPUs in tota
+  # constraint: "titan_xp"
+  exclude: "s-002"
+
+train_params:
+
+
+inference_params:
+
+
+command: "start_job"
+
+run_type: "train"
+
+run_name: "your_run_name"  # must not contain spaces. this will be part of the logdir path and the job name as well
