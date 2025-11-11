@@ -53,11 +53,3 @@ showjob() {
     scontrol show job "$1"
 }
 
-# --- Load completion file ---
-fpath=("${0:A:h}/completions" $fpath)
-autoload -Uz compinit
-if ! whence compinit >/dev/null; then
-  autoload -Uz compinit
-fi
-compinit -C
-
